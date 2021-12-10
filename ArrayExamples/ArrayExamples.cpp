@@ -34,8 +34,7 @@ int main()
 
 	// 1) CON ARRAYS
 	float input[6] = { 3,3,3,3,3,3 };
-	float output[nsalidas][6] = { {0,0,0,0,0,0},
-						          {0,0,0,0,0,0} }; 
+	float output[nsalidas][6] = { {0,0,0,0,0,0}, {0,0,0,0,0,0} }; 
 	float* aux[nsalidas]; // array de punteros auxiliar, de tamaño el número de filas de output 
 	for (int i = 0; i < nsalidas; i++) {
 		aux[i] = (float*)output + i * 6; // ...que hacemos apuntar a cada fila
@@ -45,20 +44,18 @@ int main()
 
 	// 2) CON STD::VECTORS
 	std::vector<float> vinput{ 3,3,3,3,3,3 };
-	std::vector< std::vector<float> > voutput{{0,0,0,0,0,0},
-											  {0,0,0,0,0,0} };
+	std::vector< std::vector<float> > voutput{{0,0,0,0,0,0}, {0,0,0,0,0,0} };
 	float* vaux[nsalidas]; // array de punteros auxiliar, de tamaño el número de filas de voutput
 	for (int i = 0; i < nsalidas; i++) {
-		vaux[i] = voutput[i].data(); //...que hacemos apuntar a cada fila (buffer)
+		vaux[i] = voutput[i].data(); //...que hacemos apuntar a cada fila
 	}
 	Run(vinput.data(), 3, (float**)vaux) ; 
 	std::cout << "voutput[0][0]:" << voutput[0][0] << std::endl;
 
 	// 3) CON MONOBUFFERS
 	CMonoBuffer<float> binput{ 3,3,3,3,3,3 };
-	std::vector< CMonoBuffer<float> > boutput{ {0,0,0,0,0,0},
-											  {0,0,0,0,0,0} };
-	float* baux[nsalidas]; // array de punteros auxiliar, de tamaño el número de filas de voutput
+	std::vector< CMonoBuffer<float> > boutput{ {0,0,0,0,0,0}, {0,0,0,0,0,0} };
+	float* baux[nsalidas]; // array de punteros auxiliar, de tamaño el número de filas de boutput
 	for (int i = 0; i < nsalidas; i++) {
 		baux[i] = boutput[i].data(); //...que hacemos apuntar a cada fila (buffer)
 	}
