@@ -49,7 +49,7 @@ int main()
 	for (int i = 0; i < nsalidas; i++) {
 		vaux[i] = voutput[i].data(); //...que hacemos apuntar a cada fila
 	}
-	Run(vinput.data(), 3, (float**)vaux) ; 
+	Run(vinput.data(), vinput.size(), (float**)vaux) ; 
 	std::cout << "voutput[0][0]:" << voutput[0][0] << std::endl;
 
 	// 3) CON MONOBUFFERS
@@ -59,8 +59,8 @@ int main()
 	for (int i = 0; i < nsalidas; i++) {
 		baux[i] = boutput[i].data(); //...que hacemos apuntar a cada fila (buffer)
 	}
-	Run(binput.data(), 3, (float**)baux);
-	std::cout << "boutput[0][0]:" << boutput[0][0] << std::endl;
+	Run(binput.data(), binput.size(), (float**)baux);
+	std::cout << "boutput[0][0]:" << boutput[0][0] << " boutput[1][2]:" << boutput[1][2] << std::endl;
 
 	return 0;
 }
