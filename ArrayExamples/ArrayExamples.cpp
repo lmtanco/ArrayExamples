@@ -32,7 +32,7 @@ int main()
 	//Llamo a la función tres veces, una con arrays, otra con vectores y otra con CMonoBuffers.
 	//Perdonad si me puesto en plan muy profe pesao e id directamente a los monobuffers si queréis :)
 
-	// 1) CON ARRAYS
+	// 1) CON ARRAYS: Sacado de https://cs.brynmawr.edu/Courses/cs246/spring2014/Slides/16_2DArray_Pointers.pdf 
 	float input[6] = { 3,3,3,3,3,3 };
 	float output[nsalidas][6] = { {0,0,0,0,0,0}, {0,0,0,0,0,0} }; 
 	float* aux[nsalidas]; // array de punteros auxiliar, de tamaño el número de filas de output 
